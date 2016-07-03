@@ -47,7 +47,7 @@ share:
 enableTags: true
 tagarray: []
 
-url: "https://tsingxu430.github.io"
+url: "https://tsingxu430.github.io/TsingXu"
 baseurl: "/TsingXu"
 paginate: 20
 per_page: 20
