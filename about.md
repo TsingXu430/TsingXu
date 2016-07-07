@@ -4,9 +4,9 @@ title: About
 permalink: /about/
 ---
 
-徐青，女，90后工科女。
+##<font face="微软雅黑">徐青，90后工科女</font>
 
->喜欢的歌手：五月天、林俊杰、王力宏、 Owl city、Lenka
+><font face="微软雅黑">喜欢的歌手：五月天、林俊杰、王力宏、 Owl city、Lenka
 
 >喜欢做的事：看电影、阅读
 
@@ -16,6 +16,6 @@ permalink: /about/
 
 >去过的地方：湖州（美丽的家乡）、杭州、苏州、南京、乌镇、西塘、上海、横店、舟山、安徽黄山
 
->看过的书和电影：[https://www.douban.com/people/127698022/](https://www.douban.com/people/127698022/)
+>看过的书和电影：<https://www.douban.com/people/127698022/>
 
 >学过的编程语言：C、C++、PHP、HTML、CSS、JS
