@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Example content for posts  
+title: HTML篇（二）
+date:   2016-07-10 21:00
 categories: others
 ---
 
