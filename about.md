@@ -12,10 +12,10 @@ permalink: /about/
 
 ><font face="微软雅黑">喜欢的网站：图虫网、蚂蜂窝、豆瓣</font>
 
->想要去做的事：学好前端、学好摄影、各地旅行、写好博客
+><font face="微软雅黑">想要去做的事：学好前端、学好摄影、各地旅行、写好博客</font>
 
->去过的地方：湖州（美丽的家乡）、杭州、苏州、南京、乌镇、西塘、上海、横店、舟山、安徽黄山
+><font face="微软雅黑">去过的地方：湖州（美丽的家乡）、杭州、苏州、南京、乌镇、西塘、上海、横店、舟山、安徽黄山</font>
 
->看过的书和电影：<https://www.douban.com/people/127698022/>
+><font face="微软雅黑">看过的书和电影：<https://www.douban.com/people/127698022/></font>
 
->学过的编程语言：C、C++、PHP、HTML、CSS、JS
+><font face="微软雅黑">学过的编程语言：C、C++、PHP、HTML、CSS、JS</font>
