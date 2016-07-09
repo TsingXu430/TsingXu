@@ -4,13 +4,13 @@ title: About
 permalink: /about/
 ---
 
-## 徐青，90后工科女 ##
+## <font face="微软雅黑">徐青，90后工科女</font> ##
 
-><font face="微软雅黑">喜欢的歌手：五月天、林俊杰、王力宏、 Owl city、Lenka
+><font face="微软雅黑">喜欢的歌手：五月天、林俊杰、王力宏、 Owl city、Lenka</font>
 
->喜欢做的事：看电影、阅读
+><font face="微软雅黑">喜欢做的事：看电影、阅读</font>
 
->喜欢的网站：图虫网、蚂蜂窝、豆瓣
+><font face="微软雅黑">喜欢的网站：图虫网、蚂蜂窝、豆瓣</font>
 
 >想要去做的事：学好前端、学好摄影、各地旅行、写好博客
 
