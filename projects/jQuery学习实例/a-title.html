@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>超链接提示效果</title>
+	<script src="jquery.min.js"></script>
+</head>
+<body>
+	<p><a href="#" class="tip" title="this is my first tip.">TIP1TTTTIIIIPP12344</a></p>
+</body>
+<style>
+	#mytip{
+		width: 200px;
+		font-family: "微软雅黑";
+		border: 1px solid #777;
+		position: absolute;
+	}
+</style>
+<script>
+	$(function(){
+		var x=10,y=20;
+		$("a").mouseover(function(e){
+			this.mytitle = this.title;
+			this.title="";
+			var tip = "<div id='mytip'>"+this.mytitle+"</div>";
+			$("body").append(tip);
+			$("#mytip").css({
+				"top":(e.pageY+y)+"px",
+				"left":(e.pageX+x)+"px"
+			}).show("fast");
+		}).mouseout(function(){
+			this.title = this.mytitle;
+			$("#mytip").remove();
+		})
+		$("a").mousemove(function(e){
+			$("#mytip").css({
+				"top":(e.pageY+y)+"px",
+				"left":(e.pageX+x)+"px"
+			}).show("fast");
+		})
+	})
+</script>
+</html>
