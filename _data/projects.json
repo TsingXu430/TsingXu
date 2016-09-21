@@ -7,24 +7,32 @@
 		"tags": ["HTML","CSS"]
 	},
 	{
+		"name": "3D旋转轮播",
+		"image": "placeholder.jpg",
+		"url": "3D旋转轮播/index",
+		"date": "2016-8-19",
+		"tags": ["CSS3"]
+	},
+	{
+		"name": "3D翻转焦点图",
+		"image": "placeholder.jpg",
+		"url": "3D翻转焦点图/index",
+		"date": "2016-8-20",
+		"tags": ["CSS3"]
+	},
+	{
+		"name": "图片预览效果",
+		"image": "placeholder.jpg",
+		"url": "图片预览效果/index",
+		"date": "2016-8-22",
+		"tags": ["JQuery","CSS3"]
+	},
+	{
 		"name": "starbucks",
 		"image": "placeholder.jpg",
-		"url": "starbucks/index",
+		"url": "starbucks/home",
 		"date": "2016-9-13",
 		"tags": ["HTML5","CSS3"]
-	},
-	{
-		"name": "Cool project 3",
-		"image": "placeholder.jpg",
-		"url": "#",
-		"date": "June 2014",
-		"tags": ["HTML","JQuery","PHP"]
-	},
-	{
-		"name": "Cool project 4",
-		"image": "placeholder.jpg",
-		"date": "Oct 2016",
-		"tags": ["Android","Helloworld"]
 	}
 
 ]
