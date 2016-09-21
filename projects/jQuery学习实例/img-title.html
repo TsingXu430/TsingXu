@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片提示效果</title>
+	<script src="jquery.min.js"></script>
+</head>
+<body>
+<style>
+ul{
+	list-style: none;
+	padding:0;
+	margin:0;
+}
+li{
+	display: inline-block;
+}
+#tip img{
+	display: block;
+	width: 200px;
+	height: 180px;
+}
+#tip{
+	position: absolute;
+	height: 200px;
+	width: 200px;
+	border: 1px solid #777;
+	line-height: 18px;
+	font-size: 18px;
+	font-family: "微软雅黑";
+	background-color: #333;
+	color: #fff;
+}
+</style>
+	<ul>
+		<li><a href="img/ipod.jpg" class="tip" title="苹果 iPod"><img src="img/ipod.jpg" alt="苹果 iPod"></a></li>
+		<li><a href="img/mac.jpg" class="tip" title="苹果 mac"><img src="img/mac.jpg" alt="苹果 mac"></a></li>
+		<li><a href="img/iphone.jpg" class="tip" title="苹果 iPhone"><img src="img/iphone.jpg" alt="苹果 iPhone"></a></li>
+		<li><a href="img/ipad.jpg" class="tip" title="苹果 iPad"><img src="img/ipad.jpg" alt="苹果 iPad"></a></li>
+	</ul>
+</body>
+<script>
+	$(function(){
+		var x=10,y=20;
+		$("a").mouseover(function(e){
+			this.mytitle = this.title;
+			this.title = "";
+			var mytip = "<div id='tip'><img src='" + this.href + "' alt='产品预览图'/>" + this.mytitle + "</div>";
+			$("body").append(mytip);
+
+			$("#tip").css({
+				"top":(e.pageY+y)+"px",
+				"left":(e.pageX+x)+"px"
+			}).show("fast");
+
+		}).mouseout(function(){
+			this.title = this.mytitle;
+			$("#tip").remove();
+		}).mousemove(function(e){
+			$("#tip").css({
+				"top":(e.pageY+y)+"px",
+				"left":(e.pageX+x)+"px"
+			}).show("fast");
+		})
+	})
+</script>
+</html>

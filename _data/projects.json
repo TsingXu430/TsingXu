@@ -47,6 +47,13 @@
 		"url": "HTML5 canvas/emotion",
 		"date": "2016-9-20",
 		"tags": ["HTML5","canvas"]
+	},
+	{
+		"name": "JQuery学习案例",
+		"image": "placeholder.jpg",
+		"url": "JQuery学习案例/index",
+		"date": "2016-07-24",
+		"tags": ["JQuery"]
 	}
 
 ]

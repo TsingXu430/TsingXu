@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>品牌展示列表</title>
+	<script src="jquery.min.js"></script>
+</head>
+<body>
+<style>
+*{
+	padding:0;
+	margin:0;
+	font-family: "微软雅黑";
+}
+a{
+	text-decoration: none;
+	color: #000;
+}
+.box{
+	width: 480px;
+	border: 1px solid #000;
+}
+.box ul{
+	list-style: none;
+	padding: 10px 0 20px 8px;
+}
+.box li{
+	display: inline-block;
+	width: 150px;
+	margin: 2px 0;
+}
+.box li:nth-child(3n-1){
+	text-align: center;
+}
+.box li:nth-child(3n){
+	text-align: right;
+}
+.box .more{
+	clear: both;
+	text-align: center;
+	margin:10px 0;
+}
+.box .more a{
+	border: 1px solid #999;
+	padding: 3px 10px;
+}
+</style>
+	<div class="box">
+		<ul>
+			<li><a href="">佳能</a><i>(30440)</i></li>
+			<li><a href="">尼康</a><i>(27220)</i></li>
+			<li><a href="">索尼</a><i>(20808)</i></li>
+			<li><a href="">三星</a><i>(18728)</i></li>
+			<li><a href="">松下</a><i>(17821)</i></li>
+			<li><a href="">卡西欧</a><i>(14894)</i></li>
+			<li><a href="">富士</a><i>(9520)</i></li>
+			<li><a href="">柯达</a><i>(2195)</i></li>
+			<li><a href="">宾得</a><i>(4114)</i></li>
+			<li><a href="">理光</a><i>(12205)</i></li>
+			<li><a href="">奥林巴斯</a><i>(1466)</i></li>
+			<li><a href="">明基</a><i>(3091)</i></li>
+			<li><a href="">爱国者</a><i>(12009)</i></li>
+			<li><a href="">其他品牌相机</a><i>(7252)</i></li>
+		</ul>
+		<div class="more">
+			<a href="more.html">显示全部品牌</a>
+		</div>
+	</div>
+</body>
+<script>
+$(function(){
+	var $back = $("ul li:gt(5):not(:last)");
+	$back.hide();
+	$(".more > a").click(function(){
+		if($back.is(":visible")){
+			$back.hide();
+			$(this).text("显示全部品牌");
+		}else{
+			$back.show();
+			$(this).text("精简显示品牌");
+		}
+		return false;
+	})
+})
+</script>
+</html>

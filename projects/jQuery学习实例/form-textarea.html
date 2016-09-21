@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多行文本框应用</title>
+	<script src="jquery.min.js"></script>
+</head>
+<style>
+.box{
+	display: inline-block;
+	border: 1px solid #777;
+	padding: 15px 10px;
+}
+.box span{
+	background-color: #ccc;
+	padding: 8px;
+	cursor: pointer;
+}
+.box .content{
+	margin-top: 8px;
+}
+#txt{
+	height: 100px;
+	width: 300px;
+	resize: none;
+}
+#txt2{
+	height: 150px;
+	width: 300px;
+	resize: none;
+}
+</style>
+<body>
+<form>
+<div>如果处在动画过程中，就不追加动画，避免动画队列的堆积。</div>
+<br>
+	<div class="box">
+		<div class="btn">
+			<span class="big">放大</span>
+			<span class="small">缩小</span>
+		</div>
+		<div class="content">
+			<textarea id="txt" cols="40" rows="10">新华社银川7月20日电 正在宁夏考察的中共中央总书记、国家主席、中央军委主席习近平在东西部扶贫协作座谈会上专门就做好当前防汛抗洪抢险救灾工作发表重要讲话，强调当前防汛抗洪抢险救灾形势非常严峻、任务非常繁重，各有关地区、部门和单位要把确保人民群众生命安全放在首位，进一步行动起来，强化措施，落实责任，全力做好防汛抗洪抢险救灾工作。</textarea>
+		</div>
+	</div>
+</form>
+
+<form>
+<br>
+	<div class="box">
+		<div class="btn">
+			<span class="up">向上</span>
+			<span class="down">向下</span>
+		</div>
+		<div class="content">
+			<textarea id="txt2" cols="40" rows="10">新华社银川7月20日电 正在宁夏考察的中共中央总书记、国家主席、中央军委主席习近平在东西部扶贫协作座谈会上专门就做好当前防汛抗洪抢险救灾工作发表重要讲话，强调当前防汛抗洪抢险救灾形势非常严峻、任务非常繁重，各有关地区、部门和单位要把确保人民群众生命安全放在首位，进一步行动起来，强化措施，落实责任，全力做好防汛抗洪抢险救灾工作。新华社银川7月20日电 正在宁夏考察的中共中央总书记、国家主席、中央军委主席习近平在东西部扶贫协作座谈会上专门就做好当前防汛抗洪抢险救灾工作发表重要讲话，强调当前防汛抗洪抢险救灾形势非常严峻、任务非常繁重，各有关地区、部门和单位要把确保人民群众生命安全放在首位，进一步行动起来，强化措施，落实责任，全力做好防汛抗洪抢险救灾工作。</textarea>
+		</div>
+	</div>
+</form>
+</body>
+<script>
+$(function(){
+	var $txt = $("#txt");
+	$(".big").click(function(){
+		if(!$txt.is(":animated")){
+			if($txt.height() < 200){
+			$txt.animate({ height:'+=20'},400);
+			}
+		}
+	})
+	$(".small").click(function(){
+		if(!$txt.is(":animated")){
+			if($txt.height() >50){
+			$txt.animate({ height:'-=20'},400);
+			}
+		}
+	})
+
+	var $txt2 = $("#txt2");
+	$(".up").click(function(){
+		if(!$txt2.is(":animated")){
+			$txt2.animate({ scrollTop:'-=20'},400);
+		}
+	})
+	$(".down").click(function(){
+		if(!$txt2.is(":animated")){
+			$txt2.animate({ scrollTop:'+=20'},400);
+		}
+	})
+})
+</script>
+</html>

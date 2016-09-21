@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table-color</title>
+	<script src="jquery.min.js"></script>
+</head>
+<style>
+table{
+	display: inline-block;
+	text-align: left;
+	border: 1px solid #ddd;
+	border-collapse: collapse;
+	margin-right: 40px;
+}
+tr{
+	border-bottom: 1px solid #ddd;
+}
+td,th{
+	font-family: "微软雅黑";
+	padding: 5px 50px 5px 15px;
+}
+.even{
+	background-color: #eee;
+}
+.selected{
+	background-color: #999;
+}
+</style>
+<body>
+<table>
+	<thead>
+		<tr><th></th><th>姓名</th><th>性别</th><th>地址</th></tr>
+	</thead>
+	<tbody class="body1">
+		<tr><td><input type="radio" name="it" /></td><td>张珊</td><td>男</td><td>浙江宁波</td></tr>
+		<tr><td><input type="radio" name="it"  /></td><td>李斯</td><td>男</td><td>浙江杭州</td></tr>
+		<tr><td><input type="radio"  name="it" /></td><td>王五</td><td>女</td><td>湖南长沙</td></tr>
+		<tr><td><input type="radio"  name="it" /></td><td>赵六</td><td>男</td><td>浙江温州</td></tr>
+		<tr><td><input type="radio"  name="it" /></td><td>rain</td><td>女</td><td>浙江杭州</td></tr>
+		<tr><td><input type="radio" name="it"  /></td><td>maxboom</td><td>女</td><td>江苏苏州</td></tr>
+	</tbody>
+</table>
+
+<table>
+	<thead>
+		<tr><th></th><th>姓名</th><th>性别</th><th>地址</th></tr>
+	</thead>
+	<tbody class="body2">
+		<tr><td><input type="checkbox" name="it" /></td><td>张珊</td><td>男</td><td>浙江宁波</td></tr>
+		<tr><td><input type="checkbox" name="it"  /></td><td>李斯</td><td>男</td><td>浙江杭州</td></tr>
+		<tr><td><input type="checkbox"  name="it" /></td><td>王五</td><td>女</td><td>湖南长沙</td></tr>
+		<tr><td><input type="checkbox"  name="it" /></td><td>赵六</td><td>男</td><td>浙江温州</td></tr>
+		<tr><td><input type="checkbox"  name="it" /></td><td>rain</td><td>女</td><td>浙江杭州</td></tr>
+		<tr><td><input type="checkbox" name="it"  /></td><td>maxboom</td><td>女</td><td>江苏苏州</td></tr>
+	</tbody>
+</table>
+
+</body>
+<script>
+$(function(){
+	$("tbody.body1>tr:even").addClass("even");
+	$("tbody.body1>tr").click(function(){
+		$(this).addClass("selected").siblings().removeClass("selected")
+				.end().find(":radio").prop("checked",true);
+	});
+
+	$("tbody.body2>tr:even").addClass("even");
+	$("tbody.body2>tr").click(function(){
+		var $box = $(this).find(":checkbox");
+		$box.prop("checked",true);
+		var hasSelected = $(this).hasClass("selected");
+		if(hasSelected){
+			$(this).removeClass("selected");
+			$box.removeAttr("checked");
+		}else{
+			$(this).addClass("selected");
+		}
+	});
+})
+</script>
+</html>

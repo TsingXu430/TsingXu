@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图片轮播效果</title>
+	<script src="jquery.min.js"></script>
+	<script src="animate.js"></script>
+</head>
+<style>
+*{
+	padding: 0;
+	margin: 0;
+	font-family: "微软雅黑";
+}
+a{
+	text-decoration: none;
+	color: #000;
+}
+ul{
+	list-style: none;
+}
+.box{
+	width: 620px;
+	height: 300px;
+	border: 1px solid #000;
+	margin: 20px 0 0 20px;
+	overflow: hidden;
+}
+.box .top{
+	height: 25px;
+	background-color: #eee;
+	padding: 10px;
+}
+.box .title{
+	display: inline-block;
+	font-size: 22px;
+	line-height: 22px;
+}
+.box .tip{
+	display: inline-block;
+	padding: 0 8px;
+	font-size: 0;
+	position: relative;
+	top: -10px;
+}
+.box .tip li{
+	display: inline-block;
+	margin: 0 2px;
+}
+.box .tip li a{
+	display: block;
+	background-color: #B7B7B7;
+	border-radius: 50%;
+	width: 9px;
+	height: 9px;
+}
+.box .tip .current{
+	display: block;
+	background-color: #F40;
+	border-radius: 50%;
+	width: 9px;
+	height: 9px;
+}
+.box .btn{
+	display: inline-block;
+}
+.box .btn span{
+	margin:0 5px;
+	padding: 0 8px;
+	border: 1px solid #ccc;
+	cursor: pointer;
+}
+.box em{
+	position: relative;
+	left: 200px;
+}
+.box .content{
+	width: 1600px;
+	position: relative;
+}
+.box .list li{
+	display: inline-block;
+	width: 120px;
+	border:1px solid #eee;
+	padding: 5px;
+	margin: 10px 0 0 15px;
+	position: relative;
+}
+.box .list h4{
+	padding: 0 0 5px 0;
+}
+.box .list span{
+	font-size:14px;
+}
+.box  .list em{
+	position: absolute;
+	bottom: 5px;
+	left: 48px;
+	font-size:13px;
+}
+</style>
+<body>
+	<div class="box">
+		<div class="top">
+			<h2 class="title" title="卡通动漫">卡通动漫</h2>
+			<ul class="tip">
+				<li><a href="#" class="current">1</a></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li><a href="#">5</a></li>
+				<li><a href="#">6</a></li>
+				<li><a href="#">7</a></li>
+				<li><a href="#">8</a></li>
+				<li><a href="#">9</a></li>
+				<li><a href="#">10</a></li>
+			</ul>
+			<div class="btn">
+				<span class="prev"> < </span>
+				<span class="next"> > </span>
+			</div>
+			<em><a href="#">更多>></a></em>
+		</div>
+		<div class="content">
+			<div class="list">
+				<ul>
+					<li>
+						<a href="#"><img src="img/火影忍者.jpg" alt="火影忍者"></a>
+						<h4><a href="#">火影忍者</a></h4>
+						<span>播放：<em>28,276</em></span>
+					</li>
+					<li>
+						<a href="#"><img src="img/火影忍者.jpg" alt="火影忍者"></a>
+						<h4><a href="#">火影忍者</a></h4>
+						<span>播放：<em>28,276</em></span>
+					</li>
+					<li>
+						<a href="#"><img src="img/火影忍者.jpg" alt="火影忍者"></a>
+						<h4><a href="#">火影忍者</a></h4>
+						<span>播放：<em>28,276</em></span>
+					</li>
+					<li>
+						<a href="#"><img src="img/火影忍者.jpg" alt="火影忍者"></a>
+						<h4><a href="#">火影忍者</a></h4>
+						<span>播放：<em>28,276</em></span>
+					</li>
+					<li>
+						<a href="#"><img src="img/火影忍者.jpg" alt="火影忍者"></a>
+						<h4><a href="#">火影忍者</a></h4>
+						<span>播放：<em>28,276</em></span>
+					</li>
+					<li>
+						<a href="#"><img src="img/火影忍者.jpg" alt="火影忍者"></a>
+						<h4><a href="#">火影忍者</a></h4>
+						<span>播放：<em>28,276</em></span>
+					</li>
+					<li>
+						<a href="#"><img src="img/火影忍者.jpg" alt="火影忍者"></a>
+						<h4><a href="#">火影忍者</a></h4>
+						<span>播放：<em>28,276</em></span>
+					</li>
+					<li>
+						<a href="#"><img src="img/火影忍者.jpg" alt="火影忍者"></a>
+						<h4><a href="#">火影忍者</a></h4>
+						<span>播放：<em>28,276</em></span>
+					</li>
+					<li>
+						<a href="#"><img src="img/火影忍者.jpg" alt="火影忍者"></a>
+						<h4><a href="#">火影忍者</a></h4>
+						<span>播放：<em>28,276</em></span>
+					</li>
+					<li>
+						<a href="#"><img src="img/火影忍者.jpg" alt="火影忍者"></a>
+						<h4><a href="#">火影忍者</a></h4>
+						<span>播放：<em>28,276</em></span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

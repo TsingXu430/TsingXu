@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>form-validate</title>
+	<script src="jquery.min.js"></script>
+</head>
+<body>
+<form>
+	<div class="int">
+		<label for="username">*用户名:</label>
+		<input type="text" id="username" class="required" placeholder="请输入至少6位的用户名" />
+	</div>
+	<div class="int">
+		<label for="email">*邮 箱:</label>
+		<input type="text" id="email" class="required" />
+	</div>
+	<div class="int">
+		<label for="personinfo">个人资料:</label>
+		<input type="text" id="personinfo">
+	</div>
+	<div class="sub">
+		<input type="submit" value="提交" id="send" />
+		<input type="reset" id="res" />
+	</div>
+</form>
+</body>
+<script>
+$(function(){
+	$("form :input").blur(function(){
+		var $parent = $(this).parent();
+		$parent.find("span").remove();
+		if($(this).is("#username")){
+			if(this.value == "" || this.value.length<6){
+				var error = "请输入正确的用户名.";
+				$parent.append("<span>" + error + "</span>");
+			}
+			else{
+				var ok = "输入正确";
+				$parent.append("<span>" + ok + "</span>");
+			}
+		}
+		if($(this).is("#email")){
+			if(this.value==""|| (this.value!="" && !/.+@.+\.[a-zA-Z] {2,4}$/.test(this.value))){
+				var error = "请输入正确的邮箱.";
+				$parent.append("<span>" + error + "</span>");
+			}
+			else{
+				var ok = "输入正确.";
+				$parent.append("<span>" + ok + "</span>");
+			}
+		}
+	}).keyup(function(){
+		$(this).triggerHandler("blur");
+	});
+	$("#send").click(function(){
+		$("form .required:input").trigger("blur");
+		var errorNum = $("span").length;
+		alert(errorNum);
+		if(errorNum){
+			return false;
+		}
+		alert("注册成功.");
+	});
+})
+</script>
+</html>

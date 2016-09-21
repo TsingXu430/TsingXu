@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>下拉菜单</title>
+	<script src="jquery.min.js"></script>
+</head>
+<body>
+<style>
+ul{
+	list-style:none;
+}
+a{
+	text-decoration: none;
+	color: #333;
+	font-family: "微软雅黑";
+}
+.box{
+	width:200px;
+}
+.leverl1 > a{
+	border-left: 1px solid #999;
+	border-right: 1px solid #999;
+	display: block;
+	font-size: 18px;
+	height: 30px;
+	line-height: 30px;
+	text-indent: 5px;
+}
+.leverl1 > a:hover, .leverl1 .current{
+	background-color: #eee;
+}
+.leverl1:nth-child(odd){
+	border-top: 1px solid #999;
+	border-bottom: 1px solid #999;
+}
+.leverl2{
+	display: none;
+	border-left: 1px solid #999;
+	border-right: 1px solid #999;
+}
+.leverl2 a{
+	display: block;
+	position:relative;
+	left: -25px;
+	line-height: 2;
+}
+</style>
+	<div class="box">
+		<ul>
+			<li class="leverl1">
+				<a href="#">衬衫</a>
+				<ul class="leverl2">
+					<li><a href="#">短袖衬衫</a></li>
+					<li><a href="#">长袖衬衫</a></li>
+					<li><a href="#">短袖t恤</a></li>
+					<li><a href="#">长袖t恤</a></li>
+				</ul>
+			</li>
+			<li class="leverl1">
+				<a href="#">卫衣</a>
+				<ul class="leverl2">
+					<li><a href="#">开襟卫衣</a></li>
+					<li><a href="#">套头卫衣</a></li>
+					<li><a href="#">运动卫衣</a></li>
+					<li><a href="#">童装卫衣</a></li>
+				</ul>
+			</li>
+			<li class="leverl1">
+				<a href="#">裤子</a>
+				<ul class="leverl2">
+					<li><a href="#">短裤</a></li>
+					<li><a href="#">休闲裤</a></li>
+					<li><a href="#">牛仔裤</a></li>
+					<li><a href="#">免烫卡其裤</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</body>
+<script>
+	$(".leverl1 > a").click(function(){
+		$(this).addClass("current").next().show()
+		.parent().siblings().children("a").removeClass("current")
+		.next().hide();
+		return false;
+	});
+</script>
+</html>
