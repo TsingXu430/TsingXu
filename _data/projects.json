@@ -2,14 +2,14 @@
 	{
 		"name": "视频项目-飘城旅行社",
 		"image": "placeholder.jpg",
-		"url": "/视频项目-飘城旅行社-2016.7.15-17/index",
+		"url": "视频项目-飘城旅行社-2016.7.15-17/index",
 		"date": "2016.7.15-17",
-		"tags": ["Angular JS","API"]
+		"tags": ["HTML","CSS"]
 	},
 	{
 		"name": "starbucks",
 		"image": "placeholder.jpg",
-		"url": "/starbucks/index",
+		"url": "starbucks/index",
 		"date": "2016-9-13",
 		"tags": ["HTML5","CSS3"]
 	},
