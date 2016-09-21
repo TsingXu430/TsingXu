@@ -9,9 +9,9 @@
 	{
 		"name": "starbucks",
 		"image": "placeholder.jpg",
-		"url": "#",
-		"date": "May 2014",
-		"tags": ["Android","PHP"]
+		"url": "./_site/projects/starbucks/index",
+		"date": "2016-9-13",
+		"tags": ["HTML5","CSS3"]
 	},
 	{
 		"name": "Cool project 3",
