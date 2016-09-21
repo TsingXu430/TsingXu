@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		canvas{ border:1px solid #000000; }
+	</style>
+</head>
+<body onload="draw();">
+<canvas id="canvas" width="200" height="200"></canvas>
+<canvas id="huabu" width="200" height="200"></canvas>
+<canvas id="color" width="200" height="200"></canvas>
+<canvas id="yuan" width="200" height="200"></canvas>
+<canvas id="alph1" width="200" height="200"></canvas>
+<canvas id="alph2" width="200" height="200"></canvas>
+<canvas id="line1" width="200" height="200"></canvas>
+<canvas id="gradient1" width="200" height="200"></canvas>
+<canvas id="gradient2" width="200" height="200"></canvas>
+<canvas id="pattern" width="200" height="200"></canvas>
+<script>
+function draw(){
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+
+		roundRect(ctx,10,10,200,200,15);
+		roundRect(ctx,17,17,186,186,9);
+		roundRect(ctx,50,50,50,30,5);
+		roundRect(ctx,150,50,40,20,5);
+		roundRect(ctx,50,130,20,40,5);
+		roundRect(ctx,140,140,50,30,5);
+
+		ctx.beginPath();
+		ctx.arc(35,35,15,Math.PI/7,-Math.PI/7,false);
+		ctx.lineTo(31,35);
+		ctx.fill();
+
+		for(var i=0;i<8;i++){
+
+			ctx.fillRect(50+15*i,33,4,4);
+		}
+		for(var i=0;i<10;i++){
+
+			ctx.fillRect(125,33+15*i,4,4);
+		}
+		for(var i=0;i<8;i++){
+
+			ctx.fillRect(50+15*i,108,4,4);
+		}
+
+		ctx.beginPath();
+		ctx.moveTo(97,112);
+		ctx.arc(97,112,18,0,Math.PI,true);
+		ctx.lineTo(79,130);
+		ctx.lineTo(85,124);
+		ctx.lineTo(91,130);
+		ctx.lineTo(97,124);
+		ctx.lineTo(103,130);
+		ctx.lineTo(109,124);
+		ctx.lineTo(115,130);
+		ctx.lineTo(115,112);
+		ctx.fill();
+
+		ctx.fillStyle = "white";
+		ctx.beginPath();
+		ctx.moveTo(90,108);
+		ctx.arc(90,108,5,0,Math.PI*2);
+		ctx.moveTo(104,108);
+		ctx.arc(104,108,5,0,Math.PI*2);
+		ctx.fill();
+
+		ctx.fillStyle = "black";
+		ctx.beginPath();
+		ctx.moveTo(90,108);
+		ctx.arc(90,106,2,0,Math.PI*2);
+		ctx.moveTo(104,108);
+		ctx.arc(104,106,2,0,Math.PI*2);
+		ctx.fill();
+
+
+		function roundRect(ctx,x,y,width,height,radius){
+			ctx.beginPath();
+			ctx.moveTo(x,y+radius);
+			ctx.lineTo(x,y+height-radius);
+			ctx.quadraticCurveTo(x,y+height,x+radius,y+height);
+			ctx.lineTo(x+width-radius,y+height);
+			ctx.quadraticCurveTo(x+width,y+height,x+width,y+height-radius);
+			ctx.lineTo(x+width,y+radius);
+			ctx.quadraticCurveTo(x+width,y,x+width-radius,y);
+			ctx.lineTo(x+radius,y);
+			ctx.quadraticCurveTo(x,y,x,y+radius);
+			ctx.stroke();
+		}
+
+
+		var huabu = document.getElementById("huabu");
+		var hb = huabu.getContext("2d");
+		hb.beginPath();
+		var rec = new Path2D();
+		rec.rect(10,10,50,50);
+		var circle = new Path2D();
+		circle.moveTo(130,35);
+		circle.arc(100,35,30,0,Math.PI*2);
+		hb.fill(rec);
+		hb.stroke(circle);
+
+		var color = document.getElementById("color").getContext("2d");
+
+		for(var i=0;i<6;i++){
+			for(var j=0;j<6;j++){
+				color.fillStyle = "rgb("+ Math.floor(255-42.5*i) +","+ Math.floor(255-42.5*j)+ ",0)";
+				color.fillRect(25*j,25*i,25,25);
+			}
+		}
+
+		var yuan = document.getElementById("yuan").getContext("2d");
+
+		for(var i=0;i<6;i++){
+			for(var j=0;j<6;j++){
+				yuan.strokeStyle = "rgb(0,"+ Math.floor(255-42.5*i) +","+ Math.floor(255-42.5*j)+ ")";
+				yuan.beginPath();
+				yuan.arc(12.5+25*j,12.5+25*i,10,0,Math.PI*2);
+				yuan.stroke();
+			}
+		}
+
+		var alph1 = document.getElementById("alph1").getContext("2d");
+		alph1.fillStyle = "yellow";
+		alph1.fillRect(0,0,100,100);
+		alph1.fillStyle = "green";
+		alph1.fillRect(100,0,100,100);
+		alph1.fillStyle = "blue";
+		alph1.fillRect(0,100,100,100);
+		alph1.fillStyle = "red";
+		alph1.fillRect(100,100,100,100);
+		alph1.fillStyle = "white";
+
+		alph1.globalAlpha = 0.2;
+		for(var i=0;i<10;i++){
+			alph1.beginPath();
+			alph1.arc(100,100,10+10*i,0,Math.PI*2);
+			alph1.fill();
+		}
+
+		var alph2 = document.getElementById("alph2").getContext("2d");
+		alph2.fillStyle = "yellow";
+		alph2.fillRect(0,0,200,50);
+		alph2.fillStyle = "green";
+		alph2.fillRect(0,50,200,50);
+		alph2.fillStyle = "blue";
+		alph2.fillRect(0,100,200,50);
+		alph2.fillStyle = "red";
+		alph2.fillRect(0,150,200,50);
+
+		for(var j=0;j<10;j++){
+
+			alph2.fillStyle = "rgba(255,255,255,"+ (j+1)/10 +")";
+
+			for(var i=0;i<4;i++){
+
+				alph2.fillRect(5+19*j,5+50*i,19,40);
+			}
+		}
+
+		var line1 = document.getElementById("line1").getContext("2d");
+		for(var i=0;i<10;i++){
+
+			line1.lineWidth = i+1;
+			line1.beginPath();
+			if(i%2 == 0){
+				line1.moveTo(10.5+15*i,10);
+				line1.lineTo(10.5+15*i,90);
+			}else{
+				line1.moveTo(10+15*i,10);
+				line1.lineTo(10+15*i,90);
+			}
+			line1.stroke();
+		}
+
+		var gradient1 = document.getElementById("gradient1").getContext("2d");
+		var linear1 = gradient1.createLinearGradient(0,0,200,0);
+		linear1.addColorStop(0,"white");
+		linear1.addColorStop(1,"black");
+		gradient1.fillStyle = linear1;
+		gradient1.rect(0,0,200,50);
+		gradient1.fill();
+
+		var gradient2 = document.getElementById("gradient2").getContext("2d");
+		var radgrad = gradient2.createRadialGradient(45,45,10,52,50,30);
+		radgrad.addColorStop(0,'#A7D30C');
+		radgrad.addColorStop(0.9,'#019F62');
+		radgrad.addColorStop(1,'rgba(1,159,98,0)');
+
+		var radgrad2 = gradient2.createRadialGradient(105,105,20,112,120,50);
+	  	radgrad2.addColorStop(0, '#FF5F98');
+	  	radgrad2.addColorStop(0.75, '#FF0188');
+	  	radgrad2.addColorStop(1, 'rgba(255,1,136,0)');
+
+	  	var radgrad3 = gradient2.createRadialGradient(95,15,15,102,20,40);
+  		radgrad3.addColorStop(0, '#00C9FF');
+  		radgrad3.addColorStop(0.8, '#00B5E2');
+  		radgrad3.addColorStop(1, 'rgba(0,201,255,0)');
+
+  		var radgrad4 = gradient2.createRadialGradient(0,150,50,0,140,90);
+  		radgrad4.addColorStop(0, '#F4F201');
+  		radgrad4.addColorStop(0.8, '#E4C700');
+  		radgrad4.addColorStop(1, 'rgba(228,199,0,0)');
+
+		gradient2.fillStyle = radgrad4;
+	 	gradient2.fillRect(0,0,200,200);
+	  	gradient2.fillStyle = radgrad3;
+	  	gradient2.fillRect(0,0,200,200);
+	  	gradient2.fillStyle = radgrad2;
+	  	gradient2.fillRect(0,0,200,200);
+		gradient2.fillStyle = radgrad;
+		gradient2.fillRect(0,0,200,200);
+
+		var pattern = document.getElementById("pattern").getContext("2d");
+		var backimg = new Image();
+		backimg.src = '1.jpg';
+		backimg.onload = function(){
+			var ptrn = pattern.createPattern(backimg,'repeat');
+			pattern.fillStyle = ptrn;
+			pattern.fillRect(0,0,200,200);
+		}
+
+}
+</script>
+</body>
+</html>
