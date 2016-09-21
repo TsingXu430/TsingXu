@@ -14,6 +14,13 @@
 		"tags": ["HTML","CSS"]
 	},
 	{
+		"name": "JQuery学习实例",
+		"image": "placeholder.jpg",
+		"url": "JQuery学习实例/index",
+		"date": "2016-07-24",
+		"tags": ["JQuery"]
+	},
+	{
 		"name": "3D旋转轮播",
 		"image": "placeholder.jpg",
 		"url": "3D旋转轮播/index.html",
@@ -47,13 +54,6 @@
 		"url": "HTML5 canvas/emotion",
 		"date": "2016-9-20",
 		"tags": ["HTML5","canvas"]
-	},
-	{
-		"name": "JQuery学习实例",
-		"image": "placeholder.jpg",
-		"url": "JQuery学习实例/index",
-		"date": "2016-07-24",
-		"tags": ["JQuery"]
 	}
 
 ]
