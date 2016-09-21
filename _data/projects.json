@@ -2,21 +2,21 @@
 	{
 		"name": "视频项目-飘城旅行社",
 		"image": "placeholder.jpg",
-		"url": "视频项目-飘城旅行社-2016.7.15-17/index",
+		"url": "视频项目-飘城旅行社-2016.7.15-17/index.html",
 		"date": "2016.7.15-17",
 		"tags": ["HTML","CSS"]
 	},
 	{
 		"name": "3D旋转轮播",
 		"image": "placeholder.jpg",
-		"url": "3D旋转轮播/index",
+		"url": "3D旋转轮播/index.html",
 		"date": "2016-8-19",
 		"tags": ["CSS3"]
 	},
 	{
 		"name": "3D翻转焦点图",
 		"image": "placeholder.jpg",
-		"url": "3D翻转焦点图/index",
+		"url": "3D翻转焦点图/index.html",
 		"date": "2016-8-20",
 		"tags": ["CSS3"]
 	},
