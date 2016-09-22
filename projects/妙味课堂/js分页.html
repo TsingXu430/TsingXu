@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>js分页效果</title>
+	<script src="jquery.min.js"></script>
+</head>
+<style>
+*{ margin: 0; padding: 0; }
+a{ margin: 5px; }
+#box{ margin-left: 15px; }
+#ul1{ width: 600px; height: 250px; }
+#ul1 li{width: 100px; height: 100px; background-color: red; float:left; overflow: hidden; margin: 10px;}
+</style>
+<body>
+<ul id="ul1"></ul>
+<div id="box">
+</div>
+</body>
+<script>
+window.onload = function(){
+
+	var json = {
+		title : [
+		'效果1',
+		'效果2',
+		'效果3',
+		'效果4',
+		'效果5',
+		'效果6',
+		'效果7',
+		'效果8',
+		'效果9',
+		'效果10',
+		'效果11',
+		'效果12',
+		'效果13',
+		'效果14',
+		'效果15',
+		'效果16',
+		'效果17',
+		'效果18',
+		'效果19',
+		'效果20',
+		'效果21',
+		'效果22',
+		'效果23',
+		'效果24',
+		'效果25',
+		'效果26',
+		'效果27',
+		'效果28',
+		'效果29',
+		'效果30',
+		'效果31',
+		'效果32',
+		'效果33',
+		'效果34',
+		'效果35',
+		]
+	}
+
+	var arr = [];
+
+	page({
+		id:"box",
+		nowNum:1,
+		allNum:Math.ceil(json.title.length/10),
+		pageNum:4,
+		callBack:function(now,all){
+			var num = now*10 < json.title.length ? 10 : json.title.length-(now-1)*10;
+			var oUl = document.getElementById("ul1");
+			var aLi = document.getElementsByTagName("li");
+			if(oUl.innerHTML == ""){
+
+				for (var i=0; i < num; i++){
+					var oLi = document.createElement("li");
+					oLi.innerHTML = json.title[(now-1)*10 + i];
+					oUl.appendChild(oLi);
+				}
+
+				for (var i=0; i < aLi.length; i++){
+					arr.push([aLi[i].offsetLeft,aLi[i].offsetTop]);
+				}
+
+				for (var i=0; i < aLi.length; i++){
+					aLi[i].style.position = "absolute";
+					aLi[i].style.left = arr[i][0]+"px";
+					aLi[i].style.top = arr[i][1]+"px";
+				}
+
+			}else{
+
+				var inum = 10;
+				var timer = setInterval(function(){
+
+					if(inum==0){
+
+						clearInterval(timer);
+
+						for(var i=0; i < num ;i++){
+
+							aLi[i].innerHTML = json.title[(now-1)*10 + i];
+
+						}
+
+						var timer2 = setInterval(function(){
+
+
+							if(num == 0){
+
+								clearInterval(timer2);
+
+							}else{
+
+								num--;
+							}
+
+							$(aLi).eq(num).animate({ left:arr[num][0], top:arr[num][1], opacity:1 });
+
+						},150);
+
+					}else{
+						inum--;
+					}
+
+					$(aLi).eq(inum).animate({ left:200 , top:250 , opacity:0});
+
+				},150);
+
+			}
+		}
+	});
+
+	function page(opt){
+
+		if(!opt.id) return false;
+		var box = document.getElementById(opt.id);
+		var nowNum = opt.nowNum || 1;
+		var allNum = opt.allNum || 5;
+		var pageNum = opt.pageNum || 5;
+		var callBack = opt.callBack;
+		if(nowNum > allNum) return false;
+
+		if(nowNum >Math.round(pageNum/2)  && allNum > pageNum){
+
+			var oA = document.createElement("a");
+			oA.href = '#1';
+			oA.innerHTML = "首页";
+			box.appendChild(oA);
+
+		}
+
+		if(nowNum > 1){
+
+			var oA = document.createElement("a");
+			oA.href = '#' + (nowNum-1);
+			oA.innerHTML = "上一页";
+			box.appendChild(oA);
+		}
+
+		if(allNum <= pageNum){
+			for(var i=1;i<=pageNum;i++){
+				var oA = document.createElement("a");
+				oA.href = '#'+i;
+				if(nowNum == i){
+					oA.innerHTML = i;
+				}else{
+					oA.innerHTML = "[" + i + "]";
+				}
+				box.appendChild(oA);
+			}
+		}else{
+
+			for(var i=1;i<=pageNum;i++){
+
+				var oA = document.createElement("a");
+
+				if(nowNum == 1 || nowNum == 2){
+
+					oA.href = '#'+i;
+					if(nowNum == i){
+						oA.innerHTML = i;
+					}else{
+						oA.innerHTML = "[" + i + "]";
+					}
+					box.appendChild(oA);
+
+				}
+				else if(nowNum == allNum-1 || nowNum == allNum){
+
+					oA.href = '#'+ (allNum-pageNum+i);
+					if(nowNum == (allNum-pageNum+i)){
+						oA.innerHTML = (allNum-pageNum+i);
+					}else{
+						oA.innerHTML = "[" + (allNum-pageNum+i) + "]";
+					}
+					box.appendChild(oA);
+
+				}else{
+
+					oA.href = '#'+ (nowNum - Math.round(pageNum/2) + i);
+					if(nowNum == (nowNum - Math.round(pageNum/2) + i)){
+						oA.innerHTML = (nowNum - Math.round(pageNum/2) + i);
+					}else{
+						oA.innerHTML =  "[" + (nowNum - Math.round(pageNum/2) + i) + "]";
+					}
+					box.appendChild(oA);
+				}
+			}
+		}
+		if( (allNum - nowNum) > 0 ){
+
+			var oA = document.createElement("a");
+			oA.href = '#' + (nowNum + 1);
+			oA.innerHTML = "下一页";
+			box.appendChild(oA);
+
+		}
+		if( allNum - nowNum >=  Math.round(pageNum/2) ){
+
+			var oA = document.createElement("a");
+			oA.href = '#' + allNum;
+			oA.innerHTML = "尾页";
+			box.appendChild(oA);
+
+		}
+
+		callBack(nowNum,allNum);
+
+		var aA = box.getElementsByTagName("a");
+
+		for(var i=0;i<aA.length;i++){
+
+			aA[i].onclick = function(){
+
+				var nowNum = parseInt(this.getAttribute("href").substring(1));
+				box.innerHTML = " ";
+				page({
+
+					id:opt.id,
+					nowNum:nowNum,
+					allNum:allNum,
+					pageNum:pageNum,
+					callBack:callBack
+
+				});
+
+				return false;
+
+			}
+
+		}
+	}
+
+
+};
+</script>
+</html>

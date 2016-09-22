@@ -42,6 +42,13 @@
 		"tags": ["JQuery","CSS3"]
 	},
 	{
+		"name": "妙味课堂",
+		"image": "placeholder.jpg",
+		"url": "妙味课堂/index",
+		"date": "2016-8-25",
+		"tags": ["JQuery","JS"]
+	},
+	{
 		"name": "starbucks",
 		"image": "placeholder.jpg",
 		"url": "starbucks/home",

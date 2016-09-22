@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>微博发布框</title>
+	<style>
+		#box{ width: 400px; margin: 20px auto; }
+		#box p{ float: right; margin: 0; }
+		#box textarea{ width: 400px; height: 100px; }
+		#box a{ width: 50px; height: 30px; line-height: 30px; text-align: center; font-size: 16px; float: right; background-color: #00FF00; }
+		#box a.dis{ background-color: #cccccc; }
+	</style>
+</head>
+<body>
+<div id="box">
+	<p>《新浪微博社区公约(征求意见稿)》意见征求</p>
+	<textarea></textarea>
+	<a class="dis">发布</a>
+</div>
+</body>
+<script>
+window.onload = function(){
+
+	var oBox = document.getElementById("box");
+	var oP = oBox.getElementsByTagName("p")[0];
+	var oT = oBox.getElementsByTagName("textarea")[0];
+	var oA = oBox.getElementsByTagName("a")[0];
+
+
+	var ie = !-[1,];
+
+	oT.onfocus = function(){
+
+		oP.innerHTML = "打击虚假消息，建设文明微博，还可以输入<span>140</span>字";
+	};
+
+	oT.onblur = function(){
+
+		if(oT.value == ''){
+
+			oP.innerHTML = "《新浪微博社区公约(征求意见稿)》意见征求";
+		}
+	};
+
+	if(ie){
+
+		oT.onpropertychange = toChange;
+	}else{
+		oT.oninput = toChange;
+	}
+
+	function toChange(){
+
+		var num = Math.ceil(getLength(oT.value)/2);
+		var oSpan = oBox.getElementsByTagName("span")[0];
+
+		if(num <= 140){
+			oSpan.innerHTML = 140-num;
+			oSpan.style.color = '';
+		}else{
+			oSpan.innerHTML = num-140;
+			oSpan.style.color = 'red';
+		}
+
+		if(oT.value == '' || num > 140){
+			oA.className = "dis";
+		}else{
+			oA.className = "";
+		}
+
+	}
+
+	function getLength(str){
+
+		return String(str).replace(/[^\x00-\xff]/g,'aa').length;
+	}
+}
+</script>
+</html>

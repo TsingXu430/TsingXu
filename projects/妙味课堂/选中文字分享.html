@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选中文字分享</title>
+</head>
+<style>
+#p1{ width: 300px; margin: 50px; }
+#div1{ position: absolute; display: none; }
+</style>
+<body>
+<p id="p1">
+【玩转大连必做的10件事】漫步滨海路、到海滨浴场享受阳光海滩、在人民广场喂鸽子、看女骑警、坐一回有轨电车、回忆老时光、走旅顺、忆国之殇民族之痛、老虎滩看海豚白鲸、漫步街头聆听建筑交响乐、吃海鲜大餐、渔人码头看夕阳...欢迎补充！
+</p>
+<div id="div1"><img src="images/share.gif" /></div>
+</body>
+<script>
+window.onload = function(){
+
+	var oP = document.getElementById("p1");
+	var oDiv = document.getElementById("div1");
+
+	function selectText(){
+		if(document.selection){  //IE
+			return document.selection.createRange().text;
+		}else{          //标准
+			return window.getSelection().toString();
+		}
+	}
+
+	oP.onmouseup = function(ev){
+
+		var ev = ev || window.event;
+		var left = ev.clientX;
+		var top = ev.clientY;
+		if(selectText().length > 10){
+
+			oDiv.style.display = "block";
+			oDiv.style.left = left + "px";
+			oDiv.style.top = top + "px";
+
+		}else{
+			oDiv.style.display = "none";
+		}
+	}
+
+	oP.onclick = function(ev){
+
+		var ev = ev || window.event;
+		ev.cancelBubble = true;
+	}
+
+	document.onclick = function(){
+		oDiv.style.display = "none";
+	}
+
+	oDiv.onclick = function(){
+
+		window.location.href = 'http://service.weibo.com/share/share.php?searchPic=false&title='+selectText()+'&url='+'http://blog.sina.com.cn/s/blog_4e1dad610102wrw7.html';
+	}
+}
+</script>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自适应轮播图效果</a></div></title>
+	<script src="jquery.min.js"></script>
+</head>
+<style>
+*{ padding: 0; margin: 0; }
+ul{ list-style: none; }
+a{ text-decoration: none; cursor: pointer;display: inline-block; }
+#box{ min-width: 1000px; height: 396px; position: relative; overflow: hidden; }
+#box ul{ position: absolute; left: 0; }
+#box ul li{ float: left; }
+#box ul li img{ position: relative; }
+#btn{ position: absolute; bottom: 0; text-align: center; width: 100%; }
+#btn a{ width: 11px; height: 11px; background-color: #666; cursor: pointer; display: inline-block; }
+#btn a.active{ background-color: #fff; }
+#btn a:hover{ background-color: #fff;  }
+</style>
+<body>
+<div id="box">
+	<ul>
+		<li><img src="./images/华为轮播1.jpg"></li>
+		<li><img src="./images/华为轮播2.jpg"></li>
+		<li><img src="./images/华为轮播3.jpg"></li>
+	</ul>
+	<div id="btn">
+		<a href="javascript:;" class="active"></a>
+		<a href="javascript:;"></a>
+		<a href="javascript:;"></a>
+	</div>
+</div>
+</body>
+<script>
+$(function(){
+	var $oBox = $("#box");
+	var $oUl = $("ul");
+	var $aLi = $("li");
+	var $aImg = $("img");
+
+	var $oBtn = $("#btn");
+	var $aBtn = $("a");
+	var inow = 0;
+	var inow2 = 0;
+
+	var imgWidth = 1920;
+	$oUl.css({width:imgWidth*$aImg.length+"px"});
+
+	function reSize(){
+		var viewWidth = $(window).width();
+		if(viewWidth > 1000){
+			for(var i=0;i<$aImg.length;i++){
+				$aImg.eq(i).css({ left:-(imgWidth-viewWidth)/2 });
+			}
+		}
+	}
+	reSize();
+	$(window).resize(function(){
+		reSize();
+	})
+
+	for(var i=0;i<$aBtn.length;i++){
+		$aBtn.eq(i).click(function(){
+			$(this).addClass("active").siblings().removeClass("active");
+			$oUl.animate({left:-$(this).index()*imgWidth});
+		})
+	}
+
+	function autoSwitch(){
+		setInterval(run,5000);
+	}
+
+	autoSwitch();
+
+	function run(){
+
+		var imgNum = $aImg.length;
+		if(inow == imgNum-1){
+			inow=0;
+			$aLi.eq(0).css({position: "relative"});
+			$aLi.eq(inow).css({left: imgNum*imgWidth});
+		}else{
+			inow++;
+		}
+			inow2++;
+		$aBtn.eq(inow).addClass("active").siblings().removeClass("active");
+		$oUl.animate({left:-inow2*imgWidth},function(){
+			if(inow == 0){
+				$aLi.eq(0).css({position: "static"});
+				$oUl.css({left: 0});
+				inow2 = 0;
+			}
+		});
+
+	}
+})
+</script>
+</html>

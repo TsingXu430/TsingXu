@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图效果</title>
+	<script src="jquery.min.js"></script>
+</head>
+<style>
+.box1{width:100px; height: 100px;background-color: red; position: absolute; left: 100px; top:100px;}
+.box2{width:100px; height: 100px;background-color: yellow; position: absolute; left: 250px; top:50px;}
+.box3{width:100px; height: 100px;background-color: blue; position: absolute; left: 400px; top:100px;}
+</style>
+<body>
+	<input type="button" value="<---">
+	<input type="button" value="--->">
+	<div class="box1"></div>
+	<div class="box2"></div>
+	<div class="box3"></div>
+</body>
+<script>
+$(function(){
+	var $inputs = $("input");
+	var $divs = $("div");
+	var arr = [];
+
+	for(var i=0,l=$divs.length;i<l;i++){
+
+		var x = $divs.eq(i).position();
+		var left = x.left;
+		var top = x.top;
+		arr.push([left,top]);
+
+	}
+
+	$inputs.eq(0).click(function(){
+
+		arr.push(arr[0]);
+		arr.shift(arr[0]);
+		for(var i=0,l=$divs.length;i<l;i++){
+
+			$divs.eq(i).css("left",arr[i][0]);
+			$divs.eq(i).css("top",arr[i][1]);
+
+		}
+	})
+
+	$inputs.eq(1).click(function(){
+
+		arr.unshift(arr[arr.length-1]);
+		arr.pop(arr[arr.length-1]);
+		for(var i=0,l=$divs.length;i<l;i++){
+
+			$divs.eq(i).css("left",arr[i][0]);
+			$divs.eq(i).css("top",arr[i][1]);
+
+		}
+	})
+})
+</script>
+</html>

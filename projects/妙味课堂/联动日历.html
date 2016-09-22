@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>联动日历</title>
+</head>
+<style>
+.title .right{ position: absolute; top: 6px; right: 5px; }
+table{ width: 100%; background-color: #dee3e9; color: #9ea7ac; }
+table th{ width: 46px; padding: 5px; }
+table td{ padding: 5px; text-align: center; }
+.red{ color: red; }
+.blue{color: blue;}
+table td p{ color: red; }
+input{ margin: 20px; }
+</style>
+<body>
+
+<input type="text" />
+<input type="text" />
+<input type="button" value="确定" />
+
+<div id="box">
+	<div id="nowTime">
+		<div class="title">
+			<div class="left"><span>3</span>月</div>
+			<div class="c"><span>2000</span>年<span>4</span>月</div>
+		</div>
+		<table>
+			<thead>
+				<tr>
+					<th>周一</th>
+					<th>周二</th>
+					<th>周三</th>
+					<th>周四</th>
+					<th>周五</th>
+					<th class="red">周六</th>
+					<th class="red">周日</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+					<td>1
+						<p>200元</p></td>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="nextTime">
+		<div class="title">
+			<div class="right"><span>6</span>月</div>
+			<div class="c"><span>2000</span>年<span>5</span>月</div>
+		</div>
+		<table>
+			<thead>
+				<tr>
+					<th>周一</th>
+					<th>周二</th>
+					<th>周三</th>
+					<th>周四</th>
+					<th>周五</th>
+					<th class="red">周六</th>
+					<th class="red">周日</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+					<td>1
+						<p>200元</p></td>
+					<td>1</td>
+					<td>1</td>
+					<td>1</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+</body>
+</html>

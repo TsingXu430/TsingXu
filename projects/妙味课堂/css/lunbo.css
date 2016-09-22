@@ -1,0 +1,43 @@
+@charset "UTF-8";
+body,h1,h2,h3,p,ul,img,a {margin:0;padding:0;}
+body{background:#FFFFFF url(../images/hxd_bg.gif) repeat-x;}
+ul{ list-style: none; }
+a{ text-decoration:none; }
+img{ border: none; }
+
+#lunbo{
+	width:970px;
+	height: 344px;
+	margin: 98px auto 0;
+	position: relative;
+}
+#lunbo ul{ width: 970px; height: 344px;position:absolute;left:0;top:0; }
+
+/*图片透明度设置*/
+#lunbo .pos_0 img, #lunbo .pos_6 img{ opacity: 0; }
+#lunbo .pos_1 img, #lunbo .pos_5 img{ opacity: 0.6; }
+#lunbo .pos_2 img, #lunbo .pos_4 img{ opacity: 0.8; }
+
+/*图片位置和层级设置*/
+#lunbo ul li{ position: absolute; }
+#lunbo ul .pos_0 { left:0; top: -104px; z-index: 1; }
+#lunbo ul .pos_6 { right:0; top: -104px; z-index: 1; }
+#lunbo ul .pos_1 { left:0; top:92px; z-index:2; }
+#lunbo ul .pos_5 { right:0; top:92px; z-index:2; }
+#lunbo ul .pos_2 { left:48px; top:40px; z-index:3; }
+#lunbo ul .pos_4 { right:48px; top:40px; z-index:3; }
+#lunbo ul .pos_3 { left:140px; top:0; z-index:4; }
+
+/*图片大小和宽度设置*/
+#lunbo .pos_3 img {width:680px;}
+#lunbo .pos_2 img, #lunbo .pos_4 img {width:510px;}
+#lunbo .pos_1 img, #lunbo .pos_5 img, #lunbo .pos_6 img {width:270px;}
+#lunbo .pos_0 img {width:100px;}
+
+/*向前向后按钮*/
+#lunbo a.btn {width:120px;height:110px;position:absolute;z-index:5;cursor:pointer;}
+#lunbo a.prev{left:72px;top:108px;}
+#lunbo a.next{right:81px;top:108px;}
+#lunbo a.btn span{width:76px;height:110px;position:absolute;}
+#lunbo a.prev .icon{left:0;top:0;background:url(../images/hxd_btn_1.png) no-repeat left top;}
+#lunbo a.next .icon{right:0;top:0;background:url(../images/hxd_btn_1.png) no-repeat left bottom;}

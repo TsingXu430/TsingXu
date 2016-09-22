@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>轮播图效果</title>
+	<script src="jquery.min.js"></script>
+	<link rel="stylesheet" href="./css/lunbo.css">
+</head>
+<body>
+<div id="lunbo">
+	<ul id="pic_list">
+		<li class="pos_0"><img src="./images/8.jpg"></li>
+		<li class="pos_1"><img src="./images/1.jpg"></li>
+		<li class="pos_2"><img src="./images/2.jpg"></li>
+		<li class="pos_3"><img src="./images/3.jpg"></li>
+		<li class="pos_4"><img src="./images/4.jpg"></li>
+		<li class="pos_5"><img src="./images/5.jpg"></li>
+		<li class="pos_6"><img src="./images/6.jpg"></li>
+		<li class="pos_6"><img src="./images/7.jpg"></li>
+	</ul>
+
+	<a href="javascript:;" class="btn prev">
+		<span class="icon"></span>
+	</a>
+
+	<a href="javascript:;" class="btn next">
+		<span class="icon"></span>
+	</a>
+</div>
+</body>
+<script>
+$(function(){
+	var $oDiv = $("#lunbo");
+	var $oUl = $("ul");
+	var $aLi = $("li");
+	var $aLnk = $("ul a");
+	var $aImg = $("img");
+	var $oPrevBtn = $("a.prev");
+	var $oNextBtn = $("a.next");
+	var $oPrevIcon = $(".prev.icon");
+	var $oNextIcon = $(".next.icon");
+
+	var arr = [];
+	var oTimer = null;
+
+	for(var i=0; i < $aLi.length; i++){
+		var $inow = $aLi.eq(i);
+		var iPos = $inow.position();
+		var iLeft = iPos.left;
+		var iTop = iPos.top;
+		var iZindex = $inow.css("z-index");
+		var iOpacity = $aImg.eq(i).css("opacity")*100;
+		var iWidth = parseInt($aImg.eq(i).css("width"));
+		arr.push([iPos, iLeft, iTop, iZindex, iOpacity, iWidth]);
+
+	}
+
+	for(var i=0; i< $aLi.length; i++) {
+
+		toActive($aLi.eq(i), $aImg.eq(i));
+
+	}
+
+	autoSwitch();
+
+	$oPrevBtn.click(function(){
+		imgSwitch(true);
+	});
+
+	$oNextBtn.click(function(){
+		imgSwitch(false);
+	});
+
+	function autoSwitch(){
+		oTimer = setInterval(function(){
+			imgSwitch(true);
+		},5000);
+	}
+
+	function imgSwitch(isPrev){
+		if(isPrev){
+			arr.push(arr.shift());
+		}else{
+			arr.unshift(arr.pop());
+		}
+
+		for(var i=0; i < $aLi.length; i++){
+			var $inow = $aLi.eq(i);
+			$inow.css("z-index",arr[i][3]);
+			$inow.animate( { "left":arr[i][1], "top":arr[i][2] } );
+			$aImg.eq(i).animate({"opacity":arr[i][4]/100,"width":arr[i][5]});
+		}
+	}
+
+	function toActive(obj,val1){
+		if(obj.css("z-index") == 4) {
+			val1.onmouseover = function () {
+
+				clearInterval(oTimer);
+			}.onmouseout = function () {
+
+				autoSwitch();
+			}
+		}else {
+			val1.onmouseover = null;
+			val1.onmouseout = null;
+		}
+	}
+})
+</script>
+</html>

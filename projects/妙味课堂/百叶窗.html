@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>百叶窗效果</title>
+	<script src="jquery.min.js"></script>
+</head>
+<style>
+*{
+	padding: 0;
+	margin: 0;
+}
+ul{
+	margin:20px;
+	padding: 0;
+	float: left;
+	width: 300px;
+	height: auto;
+	border-top: 1px solid #000;
+}
+li{
+	list-style: none;
+	width: 100%;
+	height: 30px;
+	overflow: hidden;
+	line-height: 30px;
+	border-bottom: 1px dashed #333;
+	position: relative;
+}
+li div{
+	position: absolute;
+	top: -30px;
+}
+li div p{
+	height: 30px;
+}
+</style>
+<body>
+<ul id="ul1">
+	<li><div><p>111111111</p><p>222222222</p></div></li>
+	<li><div><p>333333333</p><p>444444444</p></div></li>
+	<li><div><p>555555555</p><p>666666666</p></div></li>
+	<li><div><p>777777777</p><p>888888888</p></div></li>
+	<li><div><p>999999999</p><p>000000000</p></div></li>
+</ul>
+</body>
+<script>
+$(function(){
+
+		var $adiv = $("#ul1").find('div');
+		var inow = 0;
+		var timer = null;
+		var btn = true;
+
+		setInterval(function(){
+			change();
+		},3000);
+
+		function change(){
+			timer = setInterval(function(){
+				if(inow==$adiv.length){
+					clearInterval(timer);
+					inow=0;
+					btn=!btn;
+				}else{
+					$adiv.eq(inow).animate({top:btn?0:'-30px'},"nomal");
+					inow++;
+				}
+			},100)
+		}
+
+})
+</script>
+</html>

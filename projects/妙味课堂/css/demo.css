@@ -1,0 +1,53 @@
+/* author laoqin weibo:laojq2011@sina.com */
+
+body,h1,h2,h3,p,ul,img,a {margin:0;padding:0;}
+body {background:#FFFFFF url(../images/hxd_bg.gif) repeat-x;}
+ul {list-style-type:none;}
+a {text-decoration:none;}
+img {border:none;}
+
+#carousel {margin:98px auto 0;width:970px;height:344px;position:relative;overflow:hidden;z-index:2;}
+#carousel ul {width:970px;height:344px;position:absolute;left:0;top:0;}
+#carousel ul li {position:absolute;}
+#carousel ul a {border:4px #FFFFFF solid;position:absolute;left:0;top:0;z-index:1;background:url(#);}
+#carousel ul img{position:relative;left:0;top:0;z-index:2}
+#carousel .pos_0, #carousel .pos_6 {filter:alpha(opacity=0);opacity:0;}
+#carousel .pos_1, #carousel .pos_5 {filter:alpha(opacity=60);opacity:0.6;}
+#carousel .pos_2, #carousel .pos_4 {filter:alpha(opacity=80);opacity:0.8;}
+#carousel .pos_0 {left:0;top:-104px;z-index:1;}
+#carousel ul .pos_1 {left:0;top:92px;z-index:2;}
+#carousel ul .pos_2 {left:48px;top:40px;z-index:3;}
+#carousel ul .pos_3 {left:140px;top:0;z-index:4;}
+#carousel ul .pos_4 {right:48px;top:40px;z-index:3;}
+#carousel ul .pos_5 {right:0;top:92px;z-index:2;}
+#carousel ul .pos_6 {right:0;top:-104px;z-index:1;}
+#carousel .pos_0 a {width:92px;height:43px}
+#carousel .pos_1 a, #carousel .pos_5 a, #carousel .pos_6 a {width:262px;height:129px;}
+#carousel .pos_2 a, #carousel .pos_4 a {width:502px;height:250px;}
+#carousel .pos_3 a {width:672px;height:336px;}
+#carousel .pos_0 img {width:100px;}
+#carousel .pos_1 img, #carousel .pos_5 img, #carousel .pos_6 img {width:270px;}
+#carousel .pos_2 img, #carousel .pos_4 img {width:510px;}
+#carousel .pos_3 img {width:680px;}
+
+#carousel .mask {width:104px;height:72px;position:absolute;z-index:6;cursor:pointer;filter:alpha(opacity=0);opacity:0;}
+#carousel div.left {left:88px;top:128px;background:red;}
+#carousel div.right {right:97px;top:128px;background:green;}
+
+#carousel a.btn {width:120px;height:110px;position:absolute;z-index:5;cursor:default;}
+#carousel a.prev{left:72px;top:108px;}
+#carousel a.next{right:81px;top:108px;}
+#carousel a.btn span{width:76px;height:110px;position:absolute;}
+#carousel a.btn .ico1{filter:alpha(opacity=0);opacity:0;z-index:2;}
+#carousel a.btn .txt{width:106px;filter:alpha(opacity=0);opacity:0;}
+#carousel a.prev .ico{left:0;top:0;background:url(../images/hxd_btn_1.png) no-repeat left top;}
+#carousel a.prev .ico1{left:0;top:0;background:url(../images/hxd_btn_2.png) no-repeat left top;}
+#carousel a.prev .txt{left:68px;top:0;background:url(../images/hxd_btn_txt.png) no-repeat left top;}
+#carousel a.next .ico{right:0;top:0;background:url(../images/hxd_btn_1.png) no-repeat left bottom;}
+#carousel a.next .ico1{right:0;top:0;background:url(../images/hxd_btn_2.png) no-repeat left bottom;}
+#carousel a.next .txt{right:69px;top:0;background:url(../images/hxd_btn_txt.png) no-repeat left bottom;}
+
+#footer {margin-top:65px;width:100%;height:20px;}
+#footer p{font-size:14px;color:#993300;line-height:20px;text-align:center;}
+#footer a{color:#993300;}
+#footer a:hover {border-bottom:1px #993300 dotted;}
