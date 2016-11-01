@@ -1,3 +1,6 @@
+*{
+    font-family: "微软雅黑";
+}
 .main.outer{padding-top: 50px;}
 .header-panel.shadow-z-2 {
     background-color: #009587;
