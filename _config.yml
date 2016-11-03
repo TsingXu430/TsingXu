@@ -18,7 +18,7 @@ urls:
       url: /projects/
       icon: fa-desktop
     - text: Photography
-      url: /Photography/
+      url: /photos/
       icon: fa-desktop
     - text: Resume
       url: '#'
