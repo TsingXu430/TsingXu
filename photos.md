@@ -1,7 +1,7 @@
 ---
 layout: page
-title: About
-permalink: /about/
+title: Photos
+permalink: /photos/
 ---
 
 ## <font face="微软雅黑">徐青，90后工科女</font> ##
