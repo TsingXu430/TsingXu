@@ -8,17 +8,17 @@ disqus_shortname: about tsing
 google_analytics: UA-72862926-1
 urls:
     - text: Home
-      url: /
+      url: /TsingXu
       icon: fa-home
       layout: post
     - text: About
-      url: /about/
+      url: /TsingXu/about/
       icon: fa-comments
     - text: Projects
-      url: /projects/
+      url: /TsingXu/projects/
       icon: fa-desktop
     - text: Photos
-      url: /photos/
+      url: /TsingXu/photos/
       icon: fa-desktop
     - text: Resume
       url: '#'
@@ -27,7 +27,7 @@ urls:
       url: https://github.com/tsingxu430
       icon: fa-github
     - text: XML Feed
-      url: /feed.xml
+      url: /TsingXu/feed.xml
       icon: fa-feed
       
 social:
